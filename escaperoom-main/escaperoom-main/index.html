@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+         <title>Michi&prime;s Escape Room</title>
+         <link rel="icon" type="image/png" href="graphics/media/1.png">
+         <link rel="shortcut icon" type="image/png" href="graphics/media/1.png">
+         <link rel="apple-touch-icon" href="graphics/media/1.png">
+         <link rel="apple-touch-icon" sizes="152x152" href="graphics/media/1.png">
+         <link rel="apple-touch-icon" sizes="180x180" href="graphics/media/1.png">
+         <link rel="apple-touch-icon" sizes="167x167" href="graphics/media/1.png">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://d3js.org/d3.v6.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+         <link rel="stylesheet" type="text/css" href="style.css">
+         <meta charset="UTF-8">
+         <meta name="description" content="Sie müssen einen siebenstelligen Zahlencode finden um das Gebäude in möglichst kurzer Zeit zu verlassen.">
+         <meta name="keywords" content="Escape, Escape Room, Exit Room, Room, Michis Escape Room, Michi Escape Room, Escape Room Michi, Ausbrechen, Raum, Spiel, Browserspiel, Game, Gaming, Michi, Michi von Ah, von Ah, Freizeit, Schule, Abschlussarbeit, Abschlussprojekt, kostenlos, Pixabay">
+         <meta name="author" content="Michi von Ah">
+         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+         <meta name="robots" content="index, follow"/>
+         <meta name="google-site-verification" content="UOcSicNBhJAeZ_o2zcUaNZXlBA4FCknLXh913uR6OsM"/>
+         <meta name="msvalidate.01" content="1ABF99965126559C41B4E05536561180"/>
+
+         <meta property="og:title" content="Michi's Escape Room">
+         <meta property="og:description" content="Sie müssen einen siebenstelligen Zahlencode finden um das Gebäude in möglichst kurzer Zeit zu verlassen.">
+         <meta property="og:image" itemprop="image" content="https://escape.michivonah.ch/graphics/media/1.png">
+         <meta property="og:image:type" content="image/png">
+         <meta property="og:url" content="https://escape.michivonah.ch">
+         <meta property="og:site_name" content="Michi's Escape Room">
+         <meta property="og:type" content="website">
+         <meta property="twitter:title" content="Michi's Escape Room">
+         <meta property="twitter:description" content="Sie müssen einen siebenstelligen Zahlencode finden um das Gebäude in möglichst kurzer Zeit zu verlassen.">
+         <meta property="twitter:image" content="https://escape.michivonah.ch/graphics/media/2.png">
+         <meta name="twitter:card" content="summary_large_image">
+         <meta name="twitter:image:alt" content="Michi's Escape Room Logo">
+         <meta name="twitter:creator" content="@michivonah"/>
+         <meta name="msapplication-TileImage" content="https://escape.michivonah.ch/graphics/media/1.png">
+
+         <link rel="manifest" href="manifest.json">
+         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+        <div id="loading-screen">
+          <div id="loader">
+            <img src="graphics/rooms/kitchen/teddy1.png">
+          </div>
+        </div>
+
+        <div id="content">
+          <div class="inner-width">
+            <div id="header">
+              <h1>Michi&prime;s Escape Room</h1>
+              <div id="description">
+                <p id="desc-small">Sie m&uuml;ssen das Geb&auml;ude m&ouml;glichst schnell verlassen. Mit den Pfeilen unten links und rechts k&ouml;nnen sie zwischen den R&auml;umen hin und her wechseln. Durch anklicken einiger Gegenständen, können sie mit ihnen interagiere...<a onclick="showDesc();">Mehr anzeigen.</a></p>
+                <p id="desc-full" style="display:none;">Sie m&uuml;ssen das Geb&auml;ude m&ouml;glichst schnell verlassen. Mit den Pfeilen unten links und rechts k&ouml;nnen sie zwischen den R&auml;umen hin und her wechseln. Durch anklicken einiger Gegenständen, können sie mit ihnen interagieren oder sie einsammeln. Sie m&uuml;ssen den <strong>siebenstelligen</strong> geheimen Zahlencode herausfinden und am Schluss bei der T&uuml;r eingeben. Die Zahlen sind versteckt halten sie also Ihre Augen gut offen. Geschafft? Sie sehen am Schluss wie lange sie hatten und k&ouml;nnen es erneut versuchen um Ihre Zeit zu verbessern. Bei Fehlern, Problemen oder Feedback kontaktieren Sie mich unter <a href="mailto:michisescaperoom@outlook.com?subject=Problem%20mit%20Michi%27s%20Escape%20Room">michisescaperoom@outlook.com</a>. <a onclick="showDesc();">Weniger anzeigen!</a></p>
+              </div>
+
+            </div>
+            <div id="fullscreen-area">
+              <div id="game-container">
+              <iframe id="game-frame" src="game.html" title="Escape Room" allowfullscreen="true" scrolling="no">Error, game can&prime;t load.</iframe>
+            </div>
+            <div id="gameplay-options">
+              <button id="share-btn" onclick="toggleShare()"><i class="fas fa-share-alt"></i></button>
+              <button id="reload-btn" onclick="reloadGame()"><i class="fas fa-redo"></i></button>
+              <button id="fullscreen-btn" onclick="toggleFullscreen()"><i class="fas fa-expand" id="fullscreen-icon"></i></button>
+            </div>
+            <div id="share-btns">
+              <button onclick="share('twitter')"><i class="fab fa-twitter"></i></button>
+              <button onclick="share('facebook')"><i class="fab fa-facebook"></i></button>
+              <button onclick="share('reddit')"><i class="fab fa-reddit"></i></button>
+              <button onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i></button>
+              <button onclick="share('mail')"><i class="fas fa-envelope"></i></button>
+              <button onclick="share('qrcode')"><i class="fas fa-qrcode"></i></button>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="stats">
+          <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fescape.michivonah.ch&count_bg=%23E67E22&title_bg=%233498DB&icon=&icon_color=%23E7E7E7&title=Michi%27s+Escape+Room&edge_flat=false">
+        </div>
+
+        <div id="screensize-error">
+          <i class="fas fa-times-circle"></i>
+          <h1>Bitte drehen Sie das Gerät um das Spiel zu spielen. Das Spiel unterstützt nur das Querformat.</h1>
+        </div>
+
+        <script>
+        // Loading
+        window.addEventListener('load', () => {
+          $("#loading-screen").fadeOut(800);
+          if(window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem('darkmode') == "true"){
+            document.body.style.setProperty('--color', '#f2f2f2');
+            document.body.style.setProperty('--background', '#181818');
+            document.body.style.setProperty('--theme', '#e67e22');
+            console.log('Darkmode activated.');
+          }
+          if('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+          }
+          console.log("Page loaded.");
+      });
+
+        /*$(document).keyup(function(e){
+          if(e.key === "Escape"){
+            if(document.fullscreen == true){
+              closeFullscreen();
+              console.log('Fullscreen closed with Escape Key')
+            }
+            alert(e.key);
+          }
+        });*/
+
+        document.getElementById('fullscreen-area').addEventListener('fullscreenchange', (event) => {
+          if(document.fullscreenElement){
+            console.log('Fullscreen opened');
+          }
+          else{
+            closeFullscreen();
+          }
+        });
+
+        function fullscreen(){
+          var game = document.getElementById("fullscreen-area");
+          var gameFrame = document.getElementById("game-frame");
+          var fullScreenBtn = document.getElementById('fullscreen-btn');
+          var fullScreenBtnIcon = document.getElementById('fullscreen-icon');
+          //game.style.paddingTop = "15vh";
+          if($(window).height() <= 600){
+            gameFrame.style.maxWidth = "calc(100vw * 0.8)";
+            gameFrame.style.maxHeight = "calc(100vw * 0.6)";
+          }
+          else{
+            gameFrame.style.maxWidth = "calc(100vw * 0.75)";
+            gameFrame.style.maxHeight = "calc(100vw * 0.5625)";
+          }
+          //gameFrame.style.maxWidth = "80vw";
+          //gameFrame.style.maxHeight = "60vw";
+          gameFrame.style.width = "100vw";
+          gameFrame.style.height = "100vh";
+          fullScreenBtn.style.position = "absolute";
+          fullScreenBtn.style.bottom = "15px";
+          fullScreenBtn.style.right = "15px";
+          fullScreenBtnIcon.className = "fas fa-compress";
+          if(game.requestFullscreen){
+            game.requestFullscreen();
+          }
+          else if(game.webkitRequestFullscreen){
+            game.webkitRequestFullscreen();
+          }
+        }
+
+        function closeFullscreen(){
+          var game = document.getElementById("fullscreen-area");
+          var gameFrame = document.getElementById("game-frame");
+          var fullScreenBtn = document.getElementById('fullscreen-btn');
+          var fullScreenBtnIcon = document.getElementById('fullscreen-icon');
+          //game.style.paddingTop = "0";
+          gameFrame.style.maxWidth = "calc(1100px * 0.8)";
+          gameFrame.style.maxHeight = "calc(1100px * 0.6)";
+          gameFrame.style.width = "80%";
+          gameFrame.style.height = "60vw";
+          fullScreenBtn.style.position = "static";
+          fullScreenBtnIcon.className = "fas fa-expand";
+          if(document.exitFullscreen){
+            document.exitFullscreen();
+          }
+          else if(document.webkitExitFullscreen){
+            document.webkitExitFullscreen();
+          }
+        }
+
+        function toggleFullscreen(){
+          if(document.fullscreen == false){
+            fullscreen();
+            console.log('Fullscreen opened')
+          }
+          else{
+            closeFullscreen();
+            console.log('Fullscreen closed')
+          }
+        }
+
+        function reloadGame(){
+          //location.reload();
+          var gameFrame = document.getElementById("game-frame");
+          gameFrame.src = gameFrame.src;
+        }
+
+        function toggleShare(){
+          var shareButtons = document.getElementById('share-btns');
+          if(shareButtons.style.display == "block"){
+            window.scrollTo(0, 0);
+            shareButtons.style.display = "none";
+          }
+          else{
+            shareButtons.style.display = "block";
+            window.scrollTo(0, 200);
+          }
+        }
+
+        function share(service){
+          if(service == null){
+            console.log("Error");
+          }
+          else if(service == "qrcode"){
+            window.open('https://escape.michivonah.ch/graphics/media/qrcode-escaperoom.png');
+          }
+          else if(service == "twitter"){
+            window.open('https://twitter.com/intent/tweet?status=Ihr%20müsst%20unbedingt%20das%20Spiel%20Michi%27s%20Escape%20Room%20spielen.%20Ihr%20findet%20es%20unter%20escape.michivonah.ch!');
+          }
+          else if(service == "facebook"){
+            window.open('https://www.facebook.com/sharer/sharer.php?u=https://escape.michivonah.ch');
+          }
+          else if(service == "reddit"){
+            window.open('http://www.reddit.com/submit?url=https://escape.michivonah.ch');
+          }
+          else if(service == "mail"){
+            window.open("mailto:?subject=Michi%27s%20Escape%20Room&body=Ihr%20müsst%20unbedingt%20das%20Spiel%20Michi%27s%20Escape%20Room%20spielen.%20Ihr%20findet%20es%20unter%20escape.michivonah.ch!");
+          }
+          else if(service == "whatsapp"){
+            window.open('https://api.whatsapp.com/send?text=Ihr%20m%C3%BCsst%20unbedingt%20das%20Spiel%20Michi%27s%20Escape%20Room%20spielen.%20Ihr%20findet%20es%20unter%20escape.michivonah.ch!');
+          }
+
+        }
+
+        function showDesc(){
+          var description = document.getElementById('description');
+          var descriptionFull = document.getElementById('desc-full');
+          var descriptionSmall = document.getElementById('desc-small');
+          if(descriptionFull.style.display == "none"){
+            descriptionFull.style.display = "block";
+            descriptionSmall.style.display = "none";
+          }
+          else{
+            descriptionFull.style.display = "none";
+            descriptionSmall.style.display = "block";
+          }
+        }
+        </script>
+</body>
+</html>
